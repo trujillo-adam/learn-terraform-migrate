@@ -6,8 +6,13 @@ terraform {
     }
   }
 
-  backend "s3" {
-    key = "learn-terraform-migrate/compute/frontend/terraform.tfstate"
+  cloud {
+    organization = "hashicorp-training"
+    hostname     = "app.terraform.io"
+    workspaces {
+      project = "example_compute"
+      tags    = ["example_compute"]
+    }
   }
 }
 
